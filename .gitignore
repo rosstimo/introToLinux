@@ -1,0 +1,5 @@
+#### Ignore LaTeX template files ####
+.template
+common
+useTemplate.sh
+texcompile.sh
