@@ -29,7 +29,10 @@ while IFS= read -r username; do
         echo "User $username already exists, skipping."
         continue
     fi
-
+    # Create the group "students" if it doesn't exist
+    if ! getent group students > /dev/null; then
+        groupadd students
+    fi
     # Create the user, add to "students" group, and create a home directory
     useradd -m -G students "$username"
     # Set the default password for the user
