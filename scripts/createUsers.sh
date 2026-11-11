@@ -34,7 +34,7 @@ while IFS= read -r username; do
         groupadd students
     fi
     # Create the user, add to "students" group, and create a home directory
-    useradd -m -G students "$username"
+    useradd -m -s /bin/bash -G students "$username"
     # Set the default password for the user
     echo "$username:$DEFAULT_PASSWORD" | chpasswd
     # Force the user to change their password on first login
